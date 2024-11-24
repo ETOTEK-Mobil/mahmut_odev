@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:week1_project/ResultPage.dart';
+import 'package:odev/ResultPage.dart';
 
 class StateManagement extends StatefulWidget {
   const StateManagement ({super.key});

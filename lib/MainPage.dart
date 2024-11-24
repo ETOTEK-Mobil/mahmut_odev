@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:week1_project/CounterPage.dart';
-import 'package:week1_project/RowColumnStackPage.dart';
+import 'package:odev/CounterPage.dart';
+import 'package:odev/RowColumnStackPage.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
