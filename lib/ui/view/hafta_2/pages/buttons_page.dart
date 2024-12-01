@@ -46,8 +46,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                     const SizedBox(height: 20),
                     Row(
                       children: [
-                        Text(isOpen ? "Açık" : "Kapalı",
-                            style: const TextStyle(fontSize: 17)),
+                        Text(isOpen ? "Açık" : "Kapalı", style: const TextStyle(fontSize: 17)),
                         const Spacer(),
                         Switch(
                             value: isOpen,
@@ -141,7 +140,8 @@ class _ButtonsPageState extends State<ButtonsPage> {
                   )),
             ),
             Container(
-              width: mediaQueryData.size.width - 60,
+              margin: const EdgeInsets.symmetric(horizontal: 30),
+              width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(15),
@@ -161,8 +161,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                     isSelected: toggleButtons,
                     onPressed: (selectedToggle) {
                       setState(() {
-                        toggleButtons[selectedToggle] =
-                            !toggleButtons[selectedToggle];
+                        toggleButtons[selectedToggle] = !toggleButtons[selectedToggle];
                       });
                     },
                     children: const [

@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:odev/ui/utils/auth_validators.dart';
 
 class TextTextFieldPage extends StatefulWidget {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _isPasswordVisible = false;
-  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
+  TextTextFieldPage({super.key});
   @override
   State<TextTextFieldPage> createState() => _TextTextFieldPageState();
 }
 
 class _TextTextFieldPageState extends State<TextTextFieldPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isPasswordVisible = false;
+  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +25,14 @@ class _TextTextFieldPageState extends State<TextTextFieldPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Form(
-                key: widget._formKey,
-                autovalidateMode: widget._autovalidateMode,
+                key: _formKey,
+                autovalidateMode: _autovalidateMode,
                 child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: TextFormField(
-                        controller: widget._emailController,
+                        controller: _emailController,
                         validator: AuthValidators.validateEmail,
                         decoration: const InputDecoration(
                           labelText: "Email",
@@ -46,20 +47,17 @@ class _TextTextFieldPageState extends State<TextTextFieldPage> {
                     Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: TextFormField(
-                        controller: widget._passwordController,
+                        controller: _passwordController,
                         validator: AuthValidators.validatePassword,
                         decoration: InputDecoration(
                           labelText: "Password",
                           hintText: "Şifrenizi giriniz",
                           prefixIcon: const Icon(Icons.lock),
                           suffixIcon: IconButton(
-                            icon: Icon(widget._isPasswordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(_isPasswordVisible ? Icons.visibility : Icons.visibility_off),
                             onPressed: () {
                               setState(() {
-                                widget._isPasswordVisible =
-                                    !widget._isPasswordVisible;
+                                _isPasswordVisible = !_isPasswordVisible;
                               });
                             },
                           ),
@@ -67,17 +65,16 @@ class _TextTextFieldPageState extends State<TextTextFieldPage> {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                         ),
-                        obscureText: !widget._isPasswordVisible,
+                        obscureText: !_isPasswordVisible,
                       ),
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        if (widget._formKey.currentState!.validate()) {
+                        if (_formKey.currentState!.validate()) {
                           Navigator.pop(context);
                         } else {
                           setState(() {
-                            widget._autovalidateMode =
-                                AutovalidateMode.onUserInteraction;
+                            _autovalidateMode = AutovalidateMode.onUserInteraction;
                           });
                         }
                       },
